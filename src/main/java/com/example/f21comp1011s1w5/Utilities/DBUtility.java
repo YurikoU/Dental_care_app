@@ -10,14 +10,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DBUtility {
+    //Database connection information
     private static String userName   = "student";
-    private static String pw         = "student";
+    private static String password   = "student";
     private static String connectUrl = "jdbc:mysql://localhost:3306/javaProjects";
 
     public static XYChart.Series<String, Integer> getPercentageByAge()
     {
-        XYChart.Series<String, Integer> salesData = new XYChart.Series<>();
+        XYChart.Series<String, Integer> dataFromChart = new XYChart.Series<>();
 
+        //SQL query
         String query = "SELECT ageGroup, (COUNT(isDentalVisit) / 1258) * 100 AS \"People who COUNLDN'T visited in 2018 (%)\"\n" +
                        "FROM noDentalCares\n" +
                        "WHERE researchYear = '2018' AND isDentalVisit = false\n" +
@@ -26,28 +28,36 @@ public class DBUtility {
 
         //use the try with resources ensure that anything opened in the ( ... ) will be closed
         try(
-                Connection conn     = DriverManager.getConnection(connectUrl, userName,pw);
+                //Connect to the MySQL database
+                Connection conn     = DriverManager.getConnection(connectUrl, userName, password);
+                //Execute the query
                 Statement statement = conn.createStatement();
+                //Get the result
                 ResultSet resultSet = statement.executeQuery(query);
-        )
+            )
         {
+            //Run until the end of the rows of the SQL table
             while (resultSet.next())
             {
-                salesData.getData().add(new XYChart.Data<>(resultSet.getString("camera"), resultSet.getInt("Units Sold")));
+                dataFromChart.getData().add(new XYChart.Data<>(resultSet.getString("camera"), resultSet.getInt("Units Sold")));
             }
 
+        //If there is an error
         }catch (Exception e)
         {
+            //Print the error on the console
             e.printStackTrace();
         }
 
-        return salesData;
+        return dataFromChart;
     }
+
 
     public static ArrayList<NoDentalCare> getChangeByResearchYear()
     {
         ArrayList<NoDentalCare> ndcObjects = new ArrayList<>();
 
+        //SQL query
         String query = "SELECT researchYear, count(isDentalVisit) AS \"Number of people who COUNLDN'T visit in each year\"\n" +
                        "FROM noDentalCares\n" +
                        "WHERE isDentalVisit = false\n" +
@@ -56,10 +66,13 @@ public class DBUtility {
 
         //use the try with resources ensure that anything opened in the ( ... ) will be closed
         try(
-                Connection conn     = DriverManager.getConnection(connectUrl, userName, pw);
+                //Connect to the MySQL database
+                Connection conn     = DriverManager.getConnection(connectUrl, userName, password);
+                //Execute the query
                 Statement statement = conn.createStatement();
+                //Get the result
                 ResultSet resultSet = statement.executeQuery(query);
-        )
+            )
         {
             while (resultSet.next())
             {
@@ -77,8 +90,10 @@ public class DBUtility {
                 ndcObjects.add(ndcObject);
             }
 
+        //If there is an error
         }catch (Exception e)
         {
+            //Print the error on the console
             e.printStackTrace();
         }
         return ndcObjects;

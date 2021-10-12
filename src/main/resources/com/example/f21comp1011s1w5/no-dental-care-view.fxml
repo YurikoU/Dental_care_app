@@ -3,18 +3,39 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f21comp1011s1w5.NoDentalCareController">
+<AnchorPane prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f21comp1011s1w5.NoDentalCareController">
    <children>
-      <BarChart layoutX="75.0" layoutY="25.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </BarChart>
+      <SplitPane dividerPositions="0.5135135135135135" layoutY="1.0" prefHeight="450.0" prefWidth="651.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="330.0">
+               <children>
+                  <BarChart layoutX="19.0" layoutY="24.0" prefHeight="261.0" prefWidth="291.0">
+                    <xAxis>
+                      <CategoryAxis prefHeight="34.0" prefWidth="234.0" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <BarChart layoutX="14.0" layoutY="30.0" prefHeight="270.0" prefWidth="285.0">
+                    <xAxis>
+                      <CategoryAxis prefHeight="42.0" prefWidth="228.0" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
    </children>
 </AnchorPane>

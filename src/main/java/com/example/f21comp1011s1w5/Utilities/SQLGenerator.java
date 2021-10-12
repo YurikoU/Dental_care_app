@@ -37,18 +37,23 @@ public class SQLGenerator {
     public static void readFile()
     {
         try {
+            //Read the SQL file
             Scanner scanner = new Scanner(new File("noDentalCare.sql"));
 
             while (scanner.hasNext())
             {
                 System.out.println(scanner.nextLine());
             }
+
+        //If there is an error
         } catch (FileNotFoundException e) {
+            //Print the error on the console
             e.printStackTrace();
         }
     }
 
     public static void main(String[] args) {
+        //Execute readFile() method
         readFile();
     }
 
