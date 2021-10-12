@@ -14,30 +14,30 @@ public class SQLGenerator {
      */
     public static void createSQL()
     {
-        //create a random number generator
-        SecureRandom rng = new SecureRandom();
-
-        //open the formatter in the try with resources (....) block so that it will auto close
-        try(
-                Formatter formatter = new Formatter("cameraSales.sql");
-        )
-        {
-            //loop 5000 times to create random records
-            for (int i=1; i<=5000; i++)
-            {
-                LocalDate dateSold = LocalDate.now().minusDays(rng.nextInt(1095));
-                formatter.format("INSERT INTO cameraSales (cameraId, dateSold) VALUES (%d, '%s');%n",rng.nextInt(11)+1,dateSold);
-            }
-        } catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+//        //create a random number generator
+//        SecureRandom randomNum = new SecureRandom();
+//
+//        //open the formatter in the try with resources (....) block so that it will auto close
+//        try(
+//                Formatter formatter = new Formatter("cameraSales.sql");
+//        )
+//        {
+//            //loop 5000 times to create random records
+//            for (int i = 1; i <= 5000; i++)
+//            {
+//                LocalDate dateSold = LocalDate.now().minusDays(randomNum.nextInt(1095));
+//                formatter.format("INSERT INTO cameraSales (cameraId, dateSold) VALUES (%d, '%s');%n",randomNum.nextInt(11)+1,dateSold);
+//            }
+//        } catch (Exception e)
+//        {
+//            e.printStackTrace();
+//        }
     }
 
     public static void readFile()
     {
         try {
-            Scanner scanner = new Scanner(new File("cameraSales.sql"));
+            Scanner scanner = new Scanner(new File("noDentalCare.sql"));
 
             while (scanner.hasNext())
             {
