@@ -5,7 +5,9 @@ import java.util.List;
 
 public class NoDentalCare {
     private String ageGroup, sex, race, educationLevel;
-    private int researchYear;
+    private int noDentalCaresId, researchYear;
+
+
     private boolean isDentalVisit;
 
     public NoDentalCare(String ageGroup, String sex, String race, String educationLevel, int researchYear, boolean isDentalVisit) {
@@ -15,6 +17,7 @@ public class NoDentalCare {
         setEducationLevel(educationLevel);
         setResearchYear(researchYear);
         setIsDentalVisit(isDentalVisit);
+        noDentalCaresId = 0;
     }
 
     public String getAgeGroup() {
@@ -39,6 +42,10 @@ public class NoDentalCare {
 
     public boolean getIsDentalVisit() {
         return isDentalVisit;
+    }
+
+    public int getNoDentalCaresId() {
+        return noDentalCaresId;
     }
 
     public void setAgeGroup(String ageGroup) {
@@ -102,4 +109,13 @@ public class NoDentalCare {
     public void setIsDentalVisit(boolean isDentalVisit) {
         this.isDentalVisit = isDentalVisit;
     }
+
+    public void setNoDentalCaresId(int noDentalCaresId) {
+        if (0 < noDentalCaresId){
+            this.noDentalCaresId = noDentalCaresId;
+        } else {
+            throw new IllegalArgumentException("ID must be a positive integer");
+        }
+    }
+
 }
