@@ -39,7 +39,7 @@ public class NoDentalCareController implements Initializable {
 
         //Set the DB data into each BarChart element
         byAgeBarChart.getData().addAll(DBUtility.getPercentageByAge());
-        byYearBarChart.getData().addAll(DBUtility.getChangeByResearchYear());
+        //byYearBarChart.getData().addAll(DBUtility.getChangeByResearchYear());
 
         //Legend area of the chart is NOT visible.
 //        byAgeBarChart.setLegendVisible(false);

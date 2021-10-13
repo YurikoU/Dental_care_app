@@ -14,7 +14,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="495.0" prefWidth="505.0">
                <children>
-                  <BarChart fx:id="byAgeBarChart" layoutX="43.0" layoutY="48.0" prefHeight="400.0" prefWidth="420.0">
+                  <BarChart fx:id="byAgeBarChart" animated="false" layoutX="43.0" layoutY="48.0" prefHeight="400.0" prefWidth="420.0">
                     <xAxis>
                       <CategoryAxis fx:id="ageGroupXAxis" label="Age group" prefHeight="34.0" prefWidth="320.0" side="BOTTOM">
                            <tickLabelFont>
@@ -35,7 +35,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <BarChart fx:id="ByYearBarChart" layoutX="43.0" layoutY="48.0" prefHeight="400.0" prefWidth="420.0">
+                  <BarChart fx:id="ByYearBarChart" animated="false" layoutX="43.0" layoutY="48.0" prefHeight="400.0" prefWidth="420.0">
                     <xAxis>
                       <CategoryAxis fx:id="researchYearXAxis" label="Research year" prefHeight="51.0" prefWidth="332.0" side="BOTTOM">
                            <tickLabelFont>
