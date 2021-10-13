@@ -1,12 +1,12 @@
 package com.example.f21comp1011s1w5;
 
-import com.example.f21comp1011s1w5.Utilities.DBUtility;
+import com.example.f21comp1011s1w5.Utilities.SQLGenerator;
+import com.example.f21comp1011s1w5.Utilities.DBConnector;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -36,13 +36,12 @@ public class NoDentalCareController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        //Set the DB data into each BarChart element
-        byAgeBarChart.getData().addAll(DBUtility.getPercentageByAge());
-        //byYearBarChart.getData().addAll(DBUtility.getChangeByResearchYear());
+        //Connect MySQL server and set the DB data into each BarChart element
+        byAgeBarChart.getData().addAll(DBConnector.getPercentageByAge());
+        //byYearBarChart.getData().addAll(DBConnector.getChangeByResearchYear());
 
         //Legend area of the chart is NOT visible.
-//        byAgeBarChart.setLegendVisible(false);
-//        byYearBarChart.setLegendVisible(false);
+        byAgeBarChart.setLegendVisible(false);
+        //byYearBarChart.setLegendVisible(false);
     }
 }
