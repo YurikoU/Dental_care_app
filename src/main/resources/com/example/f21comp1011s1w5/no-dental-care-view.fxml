@@ -3,36 +3,55 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f21comp1011s1w5.NoDentalCareController">
+<AnchorPane prefHeight="1000.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f21comp1011s1w5.NoDentalCareController">
    <children>
-      <SplitPane dividerPositions="0.5135135135135135" layoutY="1.0" prefHeight="450.0" prefWidth="651.0">
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="1000.0" prefWidth="508.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="330.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="495.0" prefWidth="505.0">
                <children>
-                  <BarChart layoutX="19.0" layoutY="24.0" prefHeight="261.0" prefWidth="291.0">
+                  <BarChart fx:id="byAgeBarChart" layoutX="43.0" layoutY="48.0" prefHeight="400.0" prefWidth="420.0">
                     <xAxis>
-                      <CategoryAxis prefHeight="34.0" prefWidth="234.0" side="BOTTOM" />
+                      <CategoryAxis fx:id="ageGroupXAxis" label="Age group" prefHeight="34.0" prefWidth="320.0" side="BOTTOM">
+                           <tickLabelFont>
+                              <Font size="10.0" />
+                           </tickLabelFont>
+                        </CategoryAxis>
                     </xAxis>
                     <yAxis>
-                      <NumberAxis side="LEFT" />
+                      <NumberAxis fx:id="percentageYAxis" label="People who couldn't visited a dental clinic in 2018 (%)" prefHeight="298.0" prefWidth="59.0" side="LEFT" upperBound="9.0">
+                           <tickLabelFont>
+                              <Font size="10.0" />
+                           </tickLabelFont>
+                        </NumberAxis>
                     </yAxis>
                   </BarChart>
+                  <Label fx:id="byAgeBarChartLabel" layoutX="18.0" layoutY="448.0" text="Chart 1. Ratio of people who couldn't visit a dental clinic in 2018 due to financial reasons" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <BarChart layoutX="14.0" layoutY="30.0" prefHeight="270.0" prefWidth="285.0">
+                  <BarChart fx:id="ByYearBarChart" layoutX="43.0" layoutY="48.0" prefHeight="400.0" prefWidth="420.0">
                     <xAxis>
-                      <CategoryAxis prefHeight="42.0" prefWidth="228.0" side="BOTTOM" />
+                      <CategoryAxis fx:id="researchYearXAxis" label="Research year" prefHeight="51.0" prefWidth="332.0" side="BOTTOM">
+                           <tickLabelFont>
+                              <Font size="10.0" />
+                           </tickLabelFont>
+                        </CategoryAxis>
                     </xAxis>
                     <yAxis>
-                      <NumberAxis side="LEFT" />
+                      <NumberAxis fx:id="numOfPeopleYAxis" label="Number of people who couldn't visit a dentist in each year" prefHeight="319.0" prefWidth="63.0" side="LEFT" upperBound="650.0">
+                           <tickLabelFont>
+                              <Font size="10.0" />
+                           </tickLabelFont>
+                        </NumberAxis>
                     </yAxis>
                   </BarChart>
+                  <Label fx:id="ByYearBarChartLabel" layoutX="11.0" layoutY="439.0" text="Chart 2. People who couldn't visit a dental clinic each research year due to financial reasons" wrapText="true" />
                </children>
             </AnchorPane>
         </items>

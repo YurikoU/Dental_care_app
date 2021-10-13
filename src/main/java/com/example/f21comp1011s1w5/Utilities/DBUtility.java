@@ -15,9 +15,9 @@ public class DBUtility {
     private static String password   = "student";
     private static String connectUrl = "jdbc:mysql://localhost:3306/javaProjects";
 
-    public static XYChart.Series<String, Integer> getPercentageByAge()
+    public static XYChart.Series<String, Double> getPercentageByAge()
     {
-        XYChart.Series<String, Integer> dataFromChart = new XYChart.Series<>();
+        XYChart.Series<String, Double> dataFromChart = new XYChart.Series<>();
 
         //SQL query
         String query = "SELECT ageGroup, (COUNT(isDentalVisit) / 1258) * 100 AS \"People who COUNLDN'T visited in 2018 (%)\"\n" +
@@ -39,7 +39,13 @@ public class DBUtility {
             //Run until the end of the rows of the SQL table
             while (resultSet.next())
             {
-                dataFromChart.getData().add(new XYChart.Data<>(resultSet.getString("camera"), resultSet.getInt("Units Sold")));
+                //Convert the SQL result into the XYChart
+                dataFromChart.getData().add(
+                        new XYChart.Data<String, Double>(
+                                resultSet.getString("Age Group"),//X-axis
+                                resultSet.getDouble("People who couldn't visited the dental clinic in 2018 (%)")//Y-axis
+                        )
+                );
             }
 
         //If there is an error
