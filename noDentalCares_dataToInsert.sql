@@ -2,6 +2,9 @@
 Yuriko Uchida
 #200448500
 21F Adv Object Oriented Prog-Java - 01 (COMP1011)
+
+I used the following site to populate data to insert my table.
+https://mockaroo.com/
 */
 
 
