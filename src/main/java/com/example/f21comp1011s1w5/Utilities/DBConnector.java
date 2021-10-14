@@ -1,16 +1,11 @@
 package com.example.f21comp1011s1w5.Utilities;
 
-import com.example.f21comp1011s1w5.NoDentalCare;
 import javafx.scene.chart.XYChart;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class DBConnector {
     //Database connection information
@@ -18,10 +13,11 @@ public class DBConnector {
     private static String password = "student";
     private static String jdbcUrl  = "jdbc:mysql://localhost:3306/javaProjects";
 
+
     //Execute the SQL query for the Chart 1
-    public static XYChart.Series<String, Double> getPercentageByAge()
+    public static XYChart.Series<String, Double> getFirstChart()
     {
-        XYChart.Series<String, Double> xyChart1 = new XYChart.Series<>();
+        XYChart.Series<String, Double> chartObj1 = new XYChart.Series<>();
 
         //SQL query
         String query = "SELECT ageGroup, (COUNT(isDentalVisit) / 1258) * 100\n" +
@@ -44,14 +40,13 @@ public class DBConnector {
             while (resultSet.next())
             {
                 //Convert the SQL result into the XYChart
-                xyChart1.getData().add(
-                    new XYChart.Data<String, Double>(
+                chartObj1.getData().add(
+                    new XYChart.Data<>(
                             resultSet.getString("ageGroup"),//X-axis
                             resultSet.getDouble("(COUNT(isDentalVisit) / 1258) * 100")//Y-axis
                     )
                 );
             }
-
 
         }catch (Exception e)
         {
@@ -59,22 +54,22 @@ public class DBConnector {
             e.printStackTrace();
         }
 
-        return xyChart1;
+        return chartObj1;
     }
 
+
     //Execute the SQL query for the Chart 2
-    public static XYChart.Series<Integer, Integer> getChangeByResearchYear()
+    public static XYChart.Series<String, Double> getSecondChart()
     {
-        XYChart.Series<Integer, Integer> xyChart2 = new XYChart.Series<>();
+        XYChart.Series<String, Double> chartObj2 = new XYChart.Series<>();
 
         //SQL query
-        String query = "SELECT researchYear, count(isDentalVisit)\"\n" +
+        String query = "SELECT researchYear, count(isDentalVisit)\n" +
                        "FROM noDentalCares\n" +
-                       "WHERE isDentalVisit = false\n" +
+                       "WHERE isDentalVisit is false\n" +
                        "GROUP BY researchYear\n" +
                        "ORDER BY researchYear ASC;";
 
-        //use the try with resources ensure that anything opened in the ( ... ) will be closed
         try(
                 //Connect to the MySQL database
                 Connection conn     = DriverManager.getConnection(jdbcUrl, userName, password);
@@ -84,14 +79,17 @@ public class DBConnector {
                 ResultSet resultSet = statement.executeQuery(query);
             )
         {
+//            System.out.println("connected");
+
+            //As long as there is more SQL data
             while (resultSet.next())
             {
                 //Convert the SQL result into the XYChart
-                xyChart2.getData().add(
-                        new XYChart.Data<Integer, Integer>(
-                                resultSet.getInt("ageGroup"),//X-axis
-                                resultSet.getInt("(COUNT(isDentalVisit) / 1258) * 100")//Y-axis
-                        )
+                chartObj2.getData().add(
+                    new XYChart.Data<>(
+                        resultSet.getString("researchYear"),//X-axis
+                        resultSet.getDouble("COUNT(isDentalVisit)")//Y-axis
+                    )
                 );
             }
 
@@ -101,7 +99,7 @@ public class DBConnector {
             //Print the error on the console
             e.printStackTrace();
         }
-        return xyChart2;
+        return chartObj2;
     }
 
 

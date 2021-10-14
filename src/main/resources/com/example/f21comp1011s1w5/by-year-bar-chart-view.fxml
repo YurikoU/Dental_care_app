@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="450.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f21comp1011s1w5.ByYearBarChartViewController">
+    <children>
+        <Label fx:id="byYearBarChartLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="16.0" layoutY="5.0" text="Chart 2. People who couldn't visit a dental clinic each year due to financial reasons" textAlignment="CENTER" />
+        <BarChart fx:id="byYearBarChart" animated="false" layoutX="40.0" layoutY="25.0" prefHeight="400.0" prefWidth="420.0">
+            <xAxis>
+                <CategoryAxis fx:id="researchYearXAxis" animated="false" label="Research year" prefHeight="34.0" prefWidth="320.0" side="BOTTOM">
+                    <tickLabelFont>
+                        <Font size="10.0" />
+                    </tickLabelFont>
+                </CategoryAxis>
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="numOfPeopleYAxis" animated="false" label="People who couldn't visited a dental clinic each year" prefHeight="298.0" prefWidth="59.0" side="LEFT" upperBound="650.0">
+                    <tickLabelFont>
+                        <Font size="10.0" />
+                    </tickLabelFont>
+                </NumberAxis>
+            </yAxis>
+        </BarChart>
+    </children>
+</AnchorPane>
