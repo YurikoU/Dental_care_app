@@ -19,7 +19,7 @@
                 </CategoryAxis>
             </xAxis>
             <yAxis>
-                <NumberAxis fx:id="numOfPeopleYAxis" animated="false" label="People who couldn't visited a dental clinic each year" minorTickCount="2" prefHeight="298.0" prefWidth="59.0" side="LEFT" styleClass="body" upperBound="650.0">
+                <NumberAxis fx:id="numOfPeopleYAxis" animated="false" label="People who couldn't visited a dental clinic each year" minorTickCount="0" prefHeight="298.0" prefWidth="59.0" side="LEFT" styleClass="body" upperBound="650.0">
                     <tickLabelFont>
                         <Font size="10.0" />
                     </tickLabelFont>

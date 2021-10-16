@@ -49,7 +49,8 @@ public class NoDentalCare {
     }
 
     public void setAgeGroup(String ageGroup) {
-        List<String> validAgeGroups = Arrays.asList("Under 18 years",
+        List<String> validAgeGroups = Arrays.asList(
+                "Under 18 years",
                 "18–24 years",
                 "25–34 years",
                 "35–44 years",
@@ -73,7 +74,8 @@ public class NoDentalCare {
     }
 
     public void setRace(String race) {
-        List<String> validRaces = Arrays.asList("White",
+        List<String> validRaces = Arrays.asList(
+                "White",
                 "Black",
                 "American Indian or Alaska Native",
                 "Asian",
@@ -87,7 +89,8 @@ public class NoDentalCare {
     }
 
     public void setEducationLevel(String educationLevel) {
-        List<String> validEducationLevels = Arrays.asList("No high school diploma",
+        List<String> validEducationLevels = Arrays.asList(
+                "No high school diploma",
                 "High school diploma",
                 "Some college or more");
         if(validEducationLevels.contains(educationLevel)){
@@ -107,7 +110,12 @@ public class NoDentalCare {
     }
 
     public void setIsDentalVisit(boolean isDentalVisit) {
-        this.isDentalVisit = isDentalVisit;
+        if (isDentalVisit == true || isDentalVisit == false)
+        {
+            this.isDentalVisit = isDentalVisit;
+        } else {
+            throw new IllegalArgumentException("Please enter either true or false only.");
+        }
     }
 
     public void setNoDentalCaresId(int noDentalCaresId) {
