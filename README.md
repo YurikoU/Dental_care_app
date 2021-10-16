@@ -5,11 +5,11 @@
 
 
 ### Reference
-Color Combination
+Color Combination   
 https://www.materialpalette.com/
 
-Data Generator    
-https://mockaroo.com/
+Data Generator     
+https://mockaroo.com/   
 
 Icon Image   
 https://pixabay.com/vectors/toothbrush-toothpaste-hygiene-24232/
