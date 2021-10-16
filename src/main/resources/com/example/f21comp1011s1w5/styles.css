@@ -8,3 +8,10 @@
     -fx-font-weight: bold;
     -fx-font-size: 10pt
 }
+
+.chart-plot-background {
+    -fx-background-image: url("icon.png");
+    -fx-background-color: #FFFFFF;
+    -fx-opacity: 0.3;
+    -fx-background-repeat: no-repeat;
+}

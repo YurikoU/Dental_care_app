@@ -48,7 +48,7 @@ public class ByAgeBarChartViewController implements Initializable {
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
             stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
-            stage.setTitle("Dental Health Chart #2");
+            stage.setTitle("Dental Health Chart");
             stage.setScene(scene);
             stage.show();
 

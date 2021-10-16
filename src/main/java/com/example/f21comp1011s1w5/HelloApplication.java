@@ -14,7 +14,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("by-age-bar-chart-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
-        stage.setTitle("Dental Health Chart #1");
+        stage.setTitle("Dental Health Chart");
         stage.setScene(scene);
         stage.show();
     }
