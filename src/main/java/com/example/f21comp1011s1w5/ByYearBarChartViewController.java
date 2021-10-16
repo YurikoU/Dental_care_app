@@ -1,6 +1,6 @@
 package com.example.f21comp1011s1w5;
 
-import com.example.f21comp1011s1w5.Utilities.DBConnector;
+import com.example.Utilities.DBConnector;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;

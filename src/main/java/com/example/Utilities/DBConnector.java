@@ -1,4 +1,4 @@
-package com.example.f21comp1011s1w5.Utilities;
+package com.example.Utilities;
 
 import javafx.scene.chart.XYChart;
 
