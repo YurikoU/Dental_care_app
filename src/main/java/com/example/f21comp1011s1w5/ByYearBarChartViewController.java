@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.Label;
 
@@ -15,10 +16,7 @@ import java.util.ResourceBundle;
 public class ByYearBarChartViewController implements Initializable {
 
     @FXML
-    private BarChart<String, Double> byYearBarChart;
-
-    @FXML
-    private Label byYearBarChartLabel;
+    private Label byYearLineChartLabel;
 
     @FXML
     private NumberAxis numOfPeopleYAxis;
@@ -26,16 +24,17 @@ public class ByYearBarChartViewController implements Initializable {
     @FXML
     private CategoryAxis researchYearXAxis;
 
-
+    @FXML
+    private LineChart<String, Double> byYearLineChart;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Legend area is NOT visible.
-        byYearBarChart.setLegendVisible(false);
+        byYearLineChart.setLegendVisible(false);
 
         //Connect MySQL server and set the DB data into each BarChart element
-        byYearBarChart.getData().addAll(DBConnector.getSecondChart());
+        byYearLineChart.getData().addAll(DBConnector.getSecondChart());
 
     }
 }
