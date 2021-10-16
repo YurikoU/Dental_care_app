@@ -20,11 +20,11 @@ public class DBConnector {
         XYChart.Series<String, Double> chartObj1 = new XYChart.Series<>();
 
         //SQL query
-        String query = "SELECT ageGroup, (COUNT(isDentalVisit) / 1258) * 100\n" +
+        String query = "SELECT ageGroup, COUNT(isDentalVisit)\n" +
                        "FROM noDentalCares\n" +
                        "WHERE researchYear = '2018' AND isDentalVisit = false\n" +
                        "GROUP BY ageGroup \n" +
-                       "ORDER BY ageGroup ASC;";
+                       "ORDER BY IF(ageGroup RLIKE '^[a-zA-Z]', 1, 2), ageGroup";
 
         //use the try with resources ensure that anything opened in the ( ... ) will be closed
         try(
@@ -43,7 +43,7 @@ public class DBConnector {
                 chartObj1.getData().add(
                     new XYChart.Data<>(
                             resultSet.getString("ageGroup"),//X-axis
-                            resultSet.getDouble("(COUNT(isDentalVisit) / 1258) * 100")//Y-axis
+                            resultSet.getDouble("COUNT(isDentalVisit)")//Y-axis
                     )
                 );
             }

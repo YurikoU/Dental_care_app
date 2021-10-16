@@ -9,12 +9,13 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class NoDentalCareController implements Initializable {
+public class ByAgeBarChartViewController implements Initializable {
 
     //Chart 1: difference among the age groups
     @FXML
@@ -24,14 +25,14 @@ public class NoDentalCareController implements Initializable {
     private CategoryAxis ageGroupXAxis;
 
     @FXML
-    private NumberAxis percentageYAxis;
+    private NumberAxis numOfPeopleByAgeYAxis;;
 
     @FXML
     private Label byAgeBarChartLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //Legend area of the chart is NOT visible.
+        //Legend area is NOT visible.
         byAgeBarChart.setLegendVisible(false);
 
         //Connect MySQL server and set the DB data into each BarChart element
@@ -46,6 +47,7 @@ public class NoDentalCareController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("by-year-bar-chart-view.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
             stage.setTitle("Dental Health Chart #2");
             stage.setScene(scene);
             stage.show();

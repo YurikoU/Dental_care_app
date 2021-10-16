@@ -31,7 +31,7 @@ public class ByYearBarChartViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //Legend area of the chart is NOT visible.
+        //Legend area is NOT visible.
         byYearBarChart.setLegendVisible(false);
 
         //Connect MySQL server and set the DB data into each BarChart element

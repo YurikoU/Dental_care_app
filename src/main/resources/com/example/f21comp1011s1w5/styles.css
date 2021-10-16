@@ -1,0 +1,10 @@
+.body{
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-background-color: #B2EBF2;
+}
+
+#header {
+    -fx-text-fill: #536DFE;
+    -fx-font-weight: bold;
+    -fx-font-size: 10pt
+}
