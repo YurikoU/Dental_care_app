@@ -10,12 +10,14 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class InsertDataViewController implements Initializable {
-
 
     @FXML
     private ComboBox<String> ageGroupComboBox;
@@ -86,11 +88,11 @@ public class InsertDataViewController implements Initializable {
                 2018);
 
         //Set each list into the proper ComboBox
-        ageGroupComboBox.getItems().addAll(ageGroups);
-        sexComboBox.getItems().addAll(sex);
-        raceComboBox.getItems().addAll(races);
-        educationalLevelComboBox.getItems().addAll(educationLevels);
-        researchYearComboBox.getItems().addAll(researchYears);
+        this.ageGroupComboBox.getItems().addAll(ageGroups);
+        this.sexComboBox.getItems().addAll(sex);
+        this.raceComboBox.getItems().addAll(races);
+        this.educationalLevelComboBox.getItems().addAll(educationLevels);
+        this.researchYearComboBox.getItems().addAll(researchYears);
     }
 
 
@@ -105,16 +107,17 @@ public class InsertDataViewController implements Initializable {
         int researchYear      = this.researchYearComboBox.getSelectionModel().getSelectedItem();
         boolean isDentalVisit = this.isDentalVisitRadioButton.isSelected();
 
-        try {
-            //Create a object from the entered values based on the model
-            NoDentalCare noDentalCareObj = new NoDentalCare(ageGroup, sex, race, educationLevel, researchYear, isDentalVisit);
-            this.msgTextArea.setWrapText(true);
-            this.msgTextArea.setText("Your New Data\n" + noDentalCareObj);
+        //Create a object from the entered values based on the model
+        NoDentalCare noDentalCareObj = new NoDentalCare(ageGroup, sex, race, educationLevel, researchYear, isDentalVisit);
+        this.msgTextArea.setWrapText(true);
+        this.msgTextArea.setText("Your New Data\n" + noDentalCareObj);
+
+        try
+        {
 
             //SQL query to run
             String query = "INSERT INTO noDentalCares (ageGroup, sex, race, educationLevel, researchYear, isDentalVisit) " +
                             "VALUES ('"+ageGroup+"','"+sex+"','"+race+"','"+educationLevel+"',"+researchYear+","+isDentalVisit+");";
-
             //Execute the query
             DbConnector.insert(query);
 
@@ -131,7 +134,7 @@ public class InsertDataViewController implements Initializable {
 
     //Show the first chart once a user clicks the button
     @FXML
-    private void viewChartButton()
+    private void backToTheChartButton()
     {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("by-age-bar-chart-view.fxml"));

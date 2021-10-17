@@ -1,11 +1,9 @@
 package com.example.DbUtilities;
 
+import com.example.f21comp1011s1w5.InsertDataViewController;
 import javafx.scene.chart.XYChart;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DbConnector {
     //Database connection information
