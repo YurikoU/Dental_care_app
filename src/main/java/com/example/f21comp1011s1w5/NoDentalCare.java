@@ -128,7 +128,11 @@ public class NoDentalCare {
 
     @Override
     public String toString() {
-        return "INSERT INTO noDentalCares (ageGroup, sex, race, educationLevel, researchYear, isDentalVisit) " +
-                "VALUES ('"+ageGroup+"','"+sex+"','"+race+"','"+educationLevel+"',"+researchYear+","+isDentalVisit+");";
+        return  "Age Group: " + ageGroup + "\n" +
+                "Sex: " + sex + "\n" +
+                "Race: " + race + "\n" +
+                "Education Level: " + educationLevel + "\n" +
+                "Research Year: " + researchYear + "\n" +
+                "If you visit a dental clinic: " + isDentalVisit + "\n";
     }
 }

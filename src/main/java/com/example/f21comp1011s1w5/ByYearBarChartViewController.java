@@ -1,6 +1,6 @@
 package com.example.f21comp1011s1w5;
 
-import com.example.DbConection.DataReader;
+import com.example.DbUtilities.DbConnector;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.CategoryAxis;
@@ -33,7 +33,7 @@ public class ByYearBarChartViewController implements Initializable {
         byYearLineChart.setLegendVisible(false);
 
         //Connect MySQL server and set the DB data into each BarChart element
-        byYearLineChart.getData().addAll(DataReader.getSecondChart());
+        byYearLineChart.getData().addAll(DbConnector.getSecondChart());
 
     }
 }

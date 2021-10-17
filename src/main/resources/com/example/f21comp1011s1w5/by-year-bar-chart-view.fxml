@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="450.0" prefWidth="540.0" styleClass="body" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f21comp1011s1w5.ByYearBarChartViewController">
+<AnchorPane prefHeight="450.0" prefWidth="612.0" styleClass="body" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f21comp1011s1w5.ByYearBarChartViewController">
     <children>
-        <Label id="header" fx:id="byYearLineChartLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="5.0" styleClass="body" text="Chart 2. Changes the number of people who couldn't visit a dental clinic due to financial reasons" textAlignment="CENTER" />
+        <Label id="header" fx:id="byYearLineChartLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="5.0" styleClass="body" text="Chart 2. Changes the number of people who couldn't visit a dental clinic due to financial reasons" textAlignment="CENTER" />
       <LineChart fx:id="byYearLineChart" layoutX="81.0" layoutY="25.0" prefHeight="418.0" prefWidth="453.0">
         <xAxis>
           <CategoryAxis fx:id="researchYearXAxis" label="Research year" prefHeight="54.0" prefWidth="375.0" side="BOTTOM">

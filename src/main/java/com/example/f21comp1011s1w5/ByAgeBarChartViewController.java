@@ -1,6 +1,6 @@
 package com.example.f21comp1011s1w5;
 
-import com.example.DbConection.DataReader;
+import com.example.DbUtilities.DbConnector;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -36,7 +36,7 @@ public class ByAgeBarChartViewController implements Initializable {
         byAgeBarChart.setLegendVisible(false);
 
         //Connect MySQL server and set the DB data into each BarChart element
-        byAgeBarChart.getData().addAll(DataReader.getFirstChart());
+        byAgeBarChart.getData().addAll(DbConnector.getFirstChart());
     }
 
 

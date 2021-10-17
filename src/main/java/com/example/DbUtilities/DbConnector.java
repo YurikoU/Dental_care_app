@@ -1,4 +1,4 @@
-package com.example.DbConection;
+package com.example.DbUtilities;
 
 import javafx.scene.chart.XYChart;
 
@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class DataReader {
+public class DbConnector {
     //Database connection information
     private static String userName = "student";
     private static String password = "student";
@@ -102,5 +102,23 @@ public class DataReader {
         return chartObj;
     }
 
-
+    //Insert a new data into the MySQL table
+    public static void insert(String query)
+    {
+        try
+        {
+            //Connect to the MySQL database
+            Connection conn     = DriverManager.getConnection(jdbcUrl, userName, password);
+            //Prepare the query
+            Statement statement = conn.createStatement();
+            //Execute the query
+            statement.executeUpdate(query);
+            //Close the DB connection
+            conn.close();
+        }catch (Exception e)
+        {
+            //If there is an error, print it on the console
+            e.printStackTrace();
+        }
+    }
 }

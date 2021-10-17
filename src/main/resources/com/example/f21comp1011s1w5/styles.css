@@ -9,6 +9,10 @@
     -fx-font-size: 10pt
 }
 
+.chart {
+    -fx-font-family: 'Roboto', sans-serif;
+}
+
 .chart-plot-background {
     -fx-background-image: url("icon.png");
     -fx-background-color: #FFFFFF;

@@ -1,6 +1,6 @@
 package com.example.f21comp1011s1w5;
 
-import com.example.DbConection.DataInserter;
+import com.example.DbUtilities.DbConnector;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -108,21 +108,15 @@ public class InsertDataViewController implements Initializable {
         try {
             //Create a object from the entered values based on the model
             NoDentalCare noDentalCareObj = new NoDentalCare(ageGroup, sex, race, educationLevel, researchYear, isDentalVisit);
+            this.msgTextArea.setWrapText(true);
+            this.msgTextArea.setText("Your New Data\n" + noDentalCareObj);
 
             //SQL query to run
-            String query = noDentalCareObj.toString();
-
-            this.msgTextArea.setWrapText(true);
-            this.msgTextArea.setText("Your new data: " +
-                    ageGroup + "\n" +
-                    sex + "\n" +
-                    race + "\n" +
-                    educationLevel + "\n" +
-                    researchYear + "\n" +
-                    isDentalVisit);
+            String query = "INSERT INTO noDentalCares (ageGroup, sex, race, educationLevel, researchYear, isDentalVisit) " +
+                            "VALUES ('"+ageGroup+"','"+sex+"','"+race+"','"+educationLevel+"',"+researchYear+","+isDentalVisit+");";
 
             //Execute the query
-            DataInserter.insert(query);
+            DbConnector.insert(query);
 
         } catch (Exception e)
         {

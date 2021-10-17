@@ -5,16 +5,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="558.0" styleClass="body" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f21comp1011s1w5.InsertDataViewController">
+<AnchorPane prefHeight="425.0" prefWidth="587.0" styleClass="body" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f21comp1011s1w5.InsertDataViewController">
    <children>
-      <GridPane layoutX="24.0" layoutY="63.0" prefHeight="203.0" prefWidth="295.0">
+      <GridPane layoutX="24.0" layoutY="63.0" prefHeight="203.0" prefWidth="295.0" styleClass="body">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.66668701171875" minWidth="10.0" prefWidth="122.33333333333333" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.66668701171878" minWidth="10.0" prefWidth="172.33333333333337" />
@@ -27,7 +26,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="ageGroupLabel" text="Age Group" />
+            <Label fx:id="ageGroupLabel" stylesheets="@styles.css" text="Age Group" />
             <ComboBox fx:id="ageGroupComboBox" prefWidth="170.0" GridPane.columnIndex="1" />
             <Label fx:id="sexLabel" text="Sex" GridPane.rowIndex="1" />
             <ComboBox fx:id="sexComboBox" prefWidth="170.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -39,18 +38,14 @@
             <ComboBox fx:id="researchYearComboBox" prefWidth="170.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <RadioButton fx:id="isDentalVisitRadioButton" layoutX="131.0" layoutY="282.0" mnemonicParsing="false" text="Dental Visit">
-         <tooltip>
-            <Tooltip fx:id="isDentalVisitToolTip" text="If yes, please check the radio button." />
-         </tooltip>
-      </RadioButton>
+      <RadioButton fx:id="isDentalVisitRadioButton" layoutX="13.0" layoutY="282.0" mnemonicParsing="false" styleClass="body" stylesheets="@styles.css" text="Dental Visit (If visited a dental clinic, check the button)" />
       <Label id="header" layoutX="76.0" layoutY="21.0" stylesheets="@styles.css" text="Insert a New Data in The Table" />
-      <Button fx:id="insertDataButton" layoutX="109.0" layoutY="309.0" mnemonicParsing="false" onAction="#insertDataButton" prefHeight="51.0" prefWidth="126.0" text="INSERT DATA">
+      <Button fx:id="insertDataButton" layoutX="109.0" layoutY="309.0" mnemonicParsing="false" onAction="#insertDataButton" prefHeight="51.0" prefWidth="126.0" stylesheets="@styles.css" text="INSERT DATA">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
       <Button fx:id="viewChartButton" layoutX="137.0" layoutY="366.0" mnemonicParsing="false" onAction="#viewChartButton" text="View Chart" />
-      <TextArea fx:id="msgTextArea" layoutX="328.0" layoutY="63.0" prefHeight="215.0" prefWidth="199.0" />
+      <TextArea fx:id="msgTextArea" layoutX="328.0" layoutY="63.0" prefHeight="215.0" prefWidth="245.0" styleClass="body" stylesheets="@styles.css" />
    </children>
 </AnchorPane>
