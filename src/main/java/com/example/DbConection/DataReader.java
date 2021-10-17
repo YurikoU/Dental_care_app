@@ -1,4 +1,4 @@
-package com.example.Utilities;
+package com.example.DbConection;
 
 import javafx.scene.chart.XYChart;
 
@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class DBConnector {
+public class DataReader {
     //Database connection information
     private static String userName = "student";
     private static String password = "student";
