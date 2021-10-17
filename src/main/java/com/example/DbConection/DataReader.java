@@ -17,7 +17,7 @@ public class DataReader {
     //Execute the SQL query for the Chart 1
     public static XYChart.Series<String, Double> getFirstChart()
     {
-        XYChart.Series<String, Double> chartObj1 = new XYChart.Series<>();
+        XYChart.Series<String, Double> chartObj = new XYChart.Series<>();
 
         //SQL query
         String query = "SELECT ageGroup, COUNT(isDentalVisit)\n" +
@@ -40,7 +40,7 @@ public class DataReader {
             while (resultSet.next())
             {
                 //Convert the SQL result into the XYChart
-                chartObj1.getData().add(
+                chartObj.getData().add(
                     new XYChart.Data<>(
                             resultSet.getString("ageGroup"),//X-axis
                             resultSet.getDouble("COUNT(isDentalVisit)")//Y-axis
@@ -54,14 +54,14 @@ public class DataReader {
             e.printStackTrace();
         }
 
-        return chartObj1;
+        return chartObj;
     }
 
 
     //Execute the SQL query for the Chart 2
     public static XYChart.Series<String, Double> getSecondChart()
     {
-        XYChart.Series<String, Double> chartObj2 = new XYChart.Series<>();
+        XYChart.Series<String, Double> chartObj = new XYChart.Series<>();
 
         //SQL query
         String query = "SELECT researchYear, count(isDentalVisit)\n" +
@@ -85,7 +85,7 @@ public class DataReader {
             while (resultSet.next())
             {
                 //Convert the SQL result into the XYChart
-                chartObj2.getData().add(
+                chartObj.getData().add(
                     new XYChart.Data<>(
                         resultSet.getString("researchYear"),//X-axis
                         resultSet.getDouble("COUNT(isDentalVisit)")//Y-axis
@@ -99,7 +99,7 @@ public class DataReader {
             //Print the error on the console
             e.printStackTrace();
         }
-        return chartObj2;
+        return chartObj;
     }
 
 

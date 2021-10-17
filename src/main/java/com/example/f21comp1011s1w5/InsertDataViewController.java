@@ -1,14 +1,11 @@
 package com.example.f21comp1011s1w5;
 
-import com.example.DbConection.Inserter;
+import com.example.DbConection.DataInserter;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -35,8 +32,6 @@ public class InsertDataViewController implements Initializable {
     @FXML
     private RadioButton isDentalVisitRadioButton;
 
-    @FXML
-    private Tooltip isDentalVisitToolTip;
 
     @FXML
     private ComboBox<String> raceComboBox;
@@ -56,6 +51,8 @@ public class InsertDataViewController implements Initializable {
     @FXML
     private Label sexLabel;
 
+    @FXML
+    private TextArea msgTextArea;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -97,7 +94,7 @@ public class InsertDataViewController implements Initializable {
     }
 
 
-
+    //Create and insert a new data into SQL table once a user clicks the button
     @FXML
     private void insertDataButton()
     {
@@ -108,12 +105,34 @@ public class InsertDataViewController implements Initializable {
         int researchYear      = this.researchYearComboBox.getSelectionModel().getSelectedItem();
         boolean isDentalVisit = this.isDentalVisitRadioButton.isSelected();
 
-        //SQL query
-        String query = "INSERT INTO noDentalCares (ageGroup, sex, race, educationLevel, researchYear, isDentalVisit) " +
-                "VALUES ('"+ageGroup+"','"+sex+"','"+race+"','"+educationLevel+"',"+researchYear+","+isDentalVisit+");";
+        try {
+            //Create a object from the entered values based on the model
+            NoDentalCare noDentalCareObj = new NoDentalCare(ageGroup, sex, race, educationLevel, researchYear, isDentalVisit);
 
-        //Execute the query
-        Inserter.insert(query);
+            //SQL query to run
+            String query = noDentalCareObj.toString();
+
+            this.msgTextArea.setWrapText(true);
+            this.msgTextArea.setText("Your new data: " +
+                    ageGroup + "\n" +
+                    sex + "\n" +
+                    race + "\n" +
+                    educationLevel + "\n" +
+                    researchYear + "\n" +
+                    isDentalVisit);
+
+            //Execute the query
+            DataInserter.insert(query);
+
+        } catch (Exception e)
+        {
+            this.msgTextArea.setText(e.getMessage());
+            this.msgTextArea.setWrapText(true);
+            this.msgTextArea.setStyle(
+                    "-fx-text-fill: red; " +
+                    "-fx-font-size: 12px; " +
+                    "-fx-font-weight: bold;");
+        }
     }
 
     //Show the first chart once a user clicks the button

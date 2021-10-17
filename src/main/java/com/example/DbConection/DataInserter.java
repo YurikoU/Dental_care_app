@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class Inserter {
+public class DataInserter {
 
     //Database connection information
     private static String userName = "student";

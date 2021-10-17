@@ -126,4 +126,9 @@ public class NoDentalCare {
         }
     }
 
+    @Override
+    public String toString() {
+        return "INSERT INTO noDentalCares (ageGroup, sex, race, educationLevel, researchYear, isDentalVisit) " +
+                "VALUES ('"+ageGroup+"','"+sex+"','"+race+"','"+educationLevel+"',"+researchYear+","+isDentalVisit+");";
+    }
 }

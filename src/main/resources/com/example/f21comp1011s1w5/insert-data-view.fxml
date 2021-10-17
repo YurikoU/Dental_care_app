@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -11,8 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="346.0" styleClass="body" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f21comp1011s1w5.InsertDataViewController">
+<AnchorPane prefHeight="400.0" prefWidth="558.0" styleClass="body" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f21comp1011s1w5.InsertDataViewController">
    <children>
       <GridPane layoutX="24.0" layoutY="63.0" prefHeight="203.0" prefWidth="295.0">
         <columnConstraints>
@@ -51,5 +51,6 @@
          </font>
       </Button>
       <Button fx:id="viewChartButton" layoutX="137.0" layoutY="366.0" mnemonicParsing="false" onAction="#viewChartButton" text="View Chart" />
+      <TextArea fx:id="msgTextArea" layoutX="328.0" layoutY="63.0" prefHeight="215.0" prefWidth="199.0" />
    </children>
 </AnchorPane>
