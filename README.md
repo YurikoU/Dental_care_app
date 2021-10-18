@@ -12,7 +12,7 @@ https://www.materialpalette.com/
 Data Generator     
 https://mockaroo.com/   
 
-References For Column Names (not used the real data from this source)
+References For Column Names (not used the real data from this source)   
 https://www.cdc.gov/nchs/data/hus/2019/029-508.pdf
 
 ### Images   
