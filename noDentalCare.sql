@@ -26,27 +26,3 @@ CREATE TABLE noDentalCares(
     researchYear INT,
     isDentalVisit BOOLEAN
 );
-
--- DROP TABLE IF EXISTS noDentalCaresByAge;
--- CREATE TABLE noDentalCaresByAge(
--- 	byAgeId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
---     ageGroup VARCHAR(20),
---     researchYear INT,
---     isDentalVisit BOOLEAN,
--- 	FOREIGN KEY (byAgeId) REFERENCES noDentalCares(noDentalCaresId)
--- );
-
--- For chart 1 (output by age in the latest data)
--- SELECT ageGroup, COUNT(isDentalVisit)
--- FROM noDentalCares
--- WHERE researchYear = '2018' AND isDentalVisit = false
--- GROUP BY ageGroup 
--- ORDER BY IF(ageGroup RLIKE '^[a-zA-Z]', 1, 2), ageGroup;
-
-
--- For chart 2 (output by researchYear)
--- SELECT researchYear, COUNT(isDentalVisit)
--- FROM noDentalCares
--- WHERE isDentalVisit is false
--- GROUP BY researchYear
--- ORDER BY researchYear ASC;
