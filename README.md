@@ -11,5 +11,8 @@ https://www.materialpalette.com/
 Data Generator     
 https://mockaroo.com/   
 
-Icon Image   
+Chart Background Image   
 https://pixabay.com/vectors/toothbrush-toothpaste-hygiene-24232/
+
+Icon   
+https://pixabay.com/vectors/tooth-molar-dental-dentist-outline-310332/
