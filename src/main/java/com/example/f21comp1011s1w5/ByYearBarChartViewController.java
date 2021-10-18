@@ -1,6 +1,8 @@
 package com.example.f21comp1011s1w5;
 
-import com.example.DbUtilities.DbConnector;
+import com.example.Utilities.DbConnector;
+import com.example.Utilities.SceneChanger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -46,17 +48,10 @@ public class ByYearBarChartViewController implements Initializable {
 
 
     @FXML
-    private void InsertANewDataButton()
+    private void InsertANewDataButton(ActionEvent event)
     {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("insert-data-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            Stage stage = new Stage();
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
-            stage.setTitle("Dental Health");
-            stage.setScene(scene);
-            stage.show();
-
+            SceneChanger.change(event, "insert-data-view.fxml", "Dental Health");
         } catch (Exception e){
             e.printStackTrace();
         }

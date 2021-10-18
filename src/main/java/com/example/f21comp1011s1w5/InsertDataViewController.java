@@ -1,6 +1,8 @@
 package com.example.f21comp1011s1w5;
 
-import com.example.DbUtilities.DbConnector;
+import com.example.Utilities.DbConnector;
+import com.example.Utilities.SceneChanger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,9 +12,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -134,17 +133,10 @@ public class InsertDataViewController implements Initializable {
 
     //Show the first chart once a user clicks the button
     @FXML
-    private void backToTheChartButton()
+    private void backToTheChartButton(ActionEvent event)
     {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("by-age-bar-chart-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            Stage stage = new Stage();
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
-            stage.setTitle("Dental Health Chart");
-            stage.setScene(scene);
-            stage.show();
-
+            SceneChanger.change(event, "by-age-bar-chart-view.fxml", "Dental Health Chart");
         } catch (Exception e){
             e.printStackTrace();
         }

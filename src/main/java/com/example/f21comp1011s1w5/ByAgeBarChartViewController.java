@@ -1,6 +1,8 @@
 package com.example.f21comp1011s1w5;
 
-import com.example.DbUtilities.DbConnector;
+import com.example.Utilities.DbConnector;
+import com.example.Utilities.SceneChanger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -42,16 +44,9 @@ public class ByAgeBarChartViewController implements Initializable {
 
     //Once a user clicks the button, the second chart will be displayed
     @FXML
-    private void viewButton(){
+    private void viewButton(ActionEvent event){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("by-year-bar-chart-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            Stage stage = new Stage();
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
-            stage.setTitle("Dental Health Chart");
-            stage.setScene(scene);
-            stage.show();
-
+            SceneChanger.change(event, "by-year-bar-chart-view.fxml", "Dental Health Chart");
         } catch (Exception e){
             e.printStackTrace();
         }

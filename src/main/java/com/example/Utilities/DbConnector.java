@@ -1,6 +1,5 @@
-package com.example.DbUtilities;
+package com.example.Utilities;
 
-import com.example.f21comp1011s1w5.InsertDataViewController;
 import javafx.scene.chart.XYChart;
 
 import java.sql.*;
