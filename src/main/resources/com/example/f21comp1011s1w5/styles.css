@@ -14,7 +14,7 @@
 }
 
 .chart-plot-background {
-    -fx-background-image: url("icon.png");
+    -fx-background-image: url("chart-background-image.png");
     -fx-background-color: #FFFFFF;
     -fx-opacity: 0.3;
     -fx-background-repeat: no-repeat;
